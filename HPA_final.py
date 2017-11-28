@@ -18,7 +18,7 @@ def bias_variable(shape,astype):
     initial = tf.constant(0.0, shape=shape, dtype = astype)
     return tf.Variable(initial, dtype = astype)
 
-def nn_example(e, b, data_type, filepath):
+def nn_example(e, b, data_type):
     learning_rate = 0.5
     epochs = e
     batch_size = b
@@ -124,5 +124,5 @@ if __name__ == "__main__":
     elapsed_time = [[] for i in range(num_bsize)]
     size_mat = [[] for i in range(num_bsize)]
     for j, b in enumerate(batch_size):
-        accuracy_mat[j], elapsed_time[j], size_mat[j] = nn_example(epochs, b, data_type, filepath)
+        accuracy_mat[j], elapsed_time[j], size_mat[j] = nn_example(epochs, b, data_type)
         print()
